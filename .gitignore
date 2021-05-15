@@ -17,7 +17,7 @@ oneshot_voxelrcnn/build/*
 oneshot_voxelrcnn/data/*
 oneshot_voxelrcnn/output/*
 
-spconv/*
+spconv/build/*
 
 oneshot/One-Shot-Object-Detection/lib/models/res50/coco/*
 oneshot/One-Shot-Object-Detection/lib/build/*
