@@ -2,7 +2,7 @@
 
 ## Evaluating VoxelRCNN network
 - Evaluation is done by running `Voxel-R-CNN/tools/scrips/eval_voxel_rcnn.sh`
-- In that .sh file, we change the weights we want to evaluate in the flag labeled `--ckpt`; either we use the `trained_on_full_epoch_80.pth` or `trained_on_50_epoch_80.pth` weight file. The weight files are stored [here(https://drive.google.com/drive/folders/1U5Auzpqa3LFKWaAiijYqnAQN-gkSEsAN?usp=sharing)
+- In that .sh file, we change the weights we want to evaluate in the flag labeled `--ckpt`; either we use the `trained_on_full_epoch_80.pth` or `trained_on_50_epoch_80.pth` weight file. The weight files are stored [here](https://drive.google.com/drive/folders/1U5Auzpqa3LFKWaAiijYqnAQN-gkSEsAN?usp=sharing)
 - The evaluation results appear in `Voxel-R-CNN/output/voxel_rcnn/voxel_rcnn_car/default/eval/epoch_80/val/default` in the `result.pkl` file
 - To change which downsample percentage dataset we evaluate on, we simply replace the entire folder labeled `Voxel-R-CNN/data/kitti/training/velodyne/` with the folder of the downsampled dataset and run the evaluation script as described above
 - To obtain 2D and 3D visualizations, we run the `vlr-project/visualization.py` script with the correct downsampled dataset in place and refer to the desired `result.pkl` file
