@@ -1,0 +1,4 @@
+0	Berlin
+1	Cape Town
+2	Sydney
+3	Moscow

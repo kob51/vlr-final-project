@@ -1,0 +1,11 @@
+class			output				size	
+mean_vfe		voxel features			[118245,4]
+height_compression	spatial_features		[8,256,200,176]
+base_bev_backbone	spatial_features_2d		[8,256,200,176]
+anchor_head_single	batch_cls_preds			[8,70400,1]
+anchor_head_single	batch_box_preds			[8,70400,7]
+
+
+
+ret_dict eval_utils DON'T FORGET ABOUT IT
+
