@@ -1,0 +1,60 @@
+match_block
+
+initialization: inplanes
+
+forward: detect(query) [batch_size,channels,height, width] , aim(target)[batch_size,channels,height, width]
+
+
+
+
+
+
+
+
+
+#######CURRENT OUTPUTS FROM VOXEL RCNN######
+
+At level eval_utils.py:
+pred_dicts - 7 dict keys of pred_boxes, pred_scores, pred_labels
+ret_dict keys - gt, roi_0.3, rcnn_0.3, roi_0.5 , rcnn_0.5, roi_0.7 , rcnn_0.7 (metrics)
+
+At level 
+
+
+#######POTENTIAL PIPELINE########
+Feed the batch dicts of query and target in eval_utils.py lns 56-64
+
+2D FEATURE MAP FOR TARGET AND QUERY
+
+RUN MATCHING BETWEEN THEM BEFORE 3D ROI FORMATION IN anchor_head_single.py
+
+Matching output: (non-local)RPN_features, act_feat (reweighted feature map of query) , act_aim (reweighted feature map of target), c_weight(co-excitation vector)
+
+Matching output goes into rpn.py 's forward pass which takes (base_feat, im_info,gt_boxes,num_boxes):
+
+base_feat = rpn_feat
+
+num_boxes = category from dataloader?????
+
+pass in query and target till it reaches the spatial_feature_map_2d stage, values are passed from stage to stage via a dictionary (need to update values in the dictionary)
+
+after modifying anchor_head_single.py, output goes on to voxelrcnn_head.py
+
+
+##########BATCH DICT##############
+BATCH DICT CAN BE MODIFIED IN DATASETS/DATASET.PY, 
+
+BATCH DICT KEYS: ['points', 'frame_id', 'calib', 'gt_boxes', 'road_plane', 'use_lead_xyz', 'voxels', 'voxel_coords', 'voxel_num_points', 'image_shape', 'batch_size']
+
+#######ANCHOR_HEAD_SINGLE.PY###########
+INSTEAD OF PASSING SPATIAL_FEATURES_2D, PASS NON LOCAL SPATIAL FEATURES OBTAINED FROM MATCHING
+BOX, CLS FORMATION ON THESE DIFFERENT FEATURES
+
+
+
+#####POTENTIAL QUERY TARGET PAIRS##########
+TARGET: 000012
+QUERY: 000051
+
+#####DATASET#######
+modify val.txt to put just query and target image frame ids 
