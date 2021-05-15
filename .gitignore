@@ -22,4 +22,4 @@ spconv/*
 oneshot/One-Shot-Object-Detection/lib/models/res50/coco/*
 oneshot/One-Shot-Object-Detection/lib/build/*
 oneshot/One-Shot-Object-Detection/lib/datasets/__pycache__/*
-
+oneshot/One-Shot-Object-Detection/output*
